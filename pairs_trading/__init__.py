@@ -16,4 +16,16 @@ if missing_dependencies:
     )
 del hard_dependencies, dependency, missing_dependencies
 
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
+import statsmodels.api as sm
+import yfinance as yf
+import scipy.integrate
+import scipy.stats
+from sklearn.model_selection import train_test_split
+
+print("Everything should be loaded in!")
+print(type(train_test_split))
+
 #TODO: Add init docstring

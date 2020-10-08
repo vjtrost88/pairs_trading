@@ -1,14 +1,14 @@
 #check cointegration status
 def cointegration(data1,data2):
-    '''Given two data frames with a Close column, return cointegration status.'''
+    '''Given two data frames with a \"close\" column, return cointegration status.'''
     
     #train test split 
     df1,test1,df2,test2=train_test_split(data1,data2,test_size=0.7
                                          ,shuffle=False)
     
     train=pd.DataFrame()
-    train['asset1']=df1['Close']
-    train['asset2']=df2['Close']
+    train['asset1']=df1['close']
+    train['asset2']=df2['close']
     
     #this is the part where we test the cointegration
     #in this case, i use Engle-Granger two-step method
@@ -38,8 +38,8 @@ def cointegration(data1,data2):
     #eventually we visualize the result
     
     signals=pd.DataFrame()
-    signals['asset1']=test1['Close']
-    signals['asset2']=test2['Close']
+    signals['asset1']=test1['close']
+    signals['asset2']=test2['close']
     
     signals['fitted']=np.mat(sm.add_constant(signals['asset2']))*np.mat(model.params).reshape(2,1)
     
