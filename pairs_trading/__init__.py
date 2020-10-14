@@ -1,7 +1,17 @@
-__all__ = ["cointegration", "signal_generation", "plot", "portfolio", "stats", "mdd", "omega", "sortino", "profit"]
+__all__ = [
+    "cointegration",
+    "signal_generation",
+    "plot",
+    "portfolio",
+    "stats",
+    "mdd",
+    "omega",
+    "sortino",
+    "profit",
+]
 
 # Let users know if they're missing any of our hard dependencies
-hard_dependencies = ("numpy", "pandas", "statsmodels", "yfinance", "scipy", "sklearn") 
+hard_dependencies = ("numpy", "pandas", "statsmodels", "yfinance", "scipy", "sklearn")
 missing_dependencies = []
 
 for dependency in hard_dependencies:
@@ -17,15 +27,20 @@ if missing_dependencies:
 del hard_dependencies, dependency, missing_dependencies
 
 import matplotlib.pyplot as plt
-import numpy as np
-import pandas as pd
-import statsmodels.api as sm
 import yfinance as yf
 import scipy.integrate
 import scipy.stats
-from sklearn.model_selection import train_test_split
 
-print("Everything should be loaded in!")
-print(type(train_test_split))
+from pairs_trading.cointegration import cointegration
+from pairs_trading.EG_method import EG_method
+from pairs_trading.signal_generation import signal_generation
+from pairs_trading.plot import plot
+from pairs_trading.portfolio import portfolio
+from pairs_trading.stats import stats
+from pairs_trading.mdd import mdd
+from pairs_trading.omega import omega
+from pairs_trading.sortino import sortino
+from pairs_trading.profit import profit
 
-#TODO: Add init docstring
+
+# TODO: Add init docstring
